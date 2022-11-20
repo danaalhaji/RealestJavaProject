@@ -71,6 +71,14 @@ public class Company {
     @OneToMany(mappedBy="company", fetch = FetchType.LAZY)
     private List<RealEstate> realEstates;
     
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "appoeintments", 
+        joinColumns = @JoinColumn(name = "company_id"), 
+        inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> usersApp;
+    
     @PrePersist
     protected void onCreate(){
         this.createdAt = new Date();
@@ -90,6 +98,18 @@ public class Company {
 		this.id = id;
 	}
 
+	public List<RealEstate> getRealEstates() {
+		return realEstates;
+	}
+	public void setRealEstates(List<RealEstate> realEstates) {
+		this.realEstates = realEstates;
+	}
+	public List<User> getUsersApp() {
+		return usersApp;
+	}
+	public void setUsersApp(List<User> usersApp) {
+		this.usersApp = usersApp;
+	}
 	public String getCompanyName() {
 		return companyName;
 	}

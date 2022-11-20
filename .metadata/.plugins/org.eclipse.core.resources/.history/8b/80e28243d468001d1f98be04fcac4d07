@@ -1,0 +1,145 @@
+package com.axsos.realest.service;
+
+import java.util.Optional;
+
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+
+import com.axsos.realest.models.Company;
+import com.axsos.realest.models.LoginCompany;
+import com.axsos.realest.models.LoginUser;
+import com.axsos.realest.models.RealEstate;
+import com.axsos.realest.models.User;
+import com.axsos.realest.repository.CompanyRepository;
+import com.axsos.realest.repository.RealEstateRepository;
+import com.axsos.realest.repository.UserRepository;
+
+@Service
+public class AppService {
+	private final CompanyRepository companyRepo;
+	private final UserRepository userRepo;
+	private final RealEstateRepository realRepo;
+	public AppService(CompanyRepository companyRepo, UserRepository userRepo, RealEstateRepository realRepo) {
+		this.companyRepo = companyRepo;
+		this.userRepo = userRepo;
+		this.realRepo = realRepo;
+	}
+	
+	//****** USER Reg*************//	
+	
+    public User register(User newUser, BindingResult result) {
+        if(userRepo.findByEmail(newUser.getEmail()).isPresent()) {
+            result.rejectValue("email", "Unique", "This email is already in use!");
+        }
+        if(!newUser.getPassword().equals(newUser.getConfirm())) {
+            result.rejectValue("confirm", "Matches", "The Confirm Password must match Password!");
+        }
+        if(result.hasErrors()) {
+            return null;
+        } else {
+            String hashed = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
+            newUser.setPassword(hashed);
+            return userRepo.save(newUser);
+        }
+    }
+    
+	//****** USER Login*************//	
+    
+    public User login(LoginUser newLogin, BindingResult result) {
+        if(result.hasErrors()) {
+            return null;
+        }
+        Optional<User> potentialUser = userRepo.findByEmail(newLogin.getEmail());
+        if(!potentialUser.isPresent()) {
+            result.rejectValue("email", "Unique", "Unknown email!");
+            return null;
+        }
+        User user = potentialUser.get();
+        if(!BCrypt.checkpw(newLogin.getPassword(), user.getPassword())) {
+            result.rejectValue("password", "Matches", "Invalid Password!");
+        }
+        if(result.hasErrors()) {
+            return null;
+        } else {
+            return user;
+        }
+    }
+    public User findUserById(Long id) {
+        Optional<User> u = userRepo.findById(id);
+
+        if(u.isPresent()) {
+            return u.get();
+            } else {
+            return null;
+        }
+    }
+	
+	//****** Company Registration*************//	
+    public Company registerCompany(Company newCompany, BindingResult result) {
+        if(companyRepo.findByLicensedOp(newCompany.getLicensedOp()).isPresent()) {
+            result.rejectValue("Licensed Operated", "Unique", "This licensed operated is already in use!");
+        }
+        if(!newCompany.getPasswordCom().equals(newCompany.getConfirmPass())) {
+            result.rejectValue("confirm", "Matches", "The Confirm Password must match Password!");
+        }
+        if(result.hasErrors()) {
+            return null;
+        } else {
+            String hashed = BCrypt.hashpw(newCompany.getPasswordCom(), BCrypt.gensalt());
+            newCompany.setPasswordCom(hashed);
+            return companyRepo.save(newCompany);
+        }
+    }
+	//****** Company Login *************//
+    public Company loginCompany(LoginCompany newLogin, BindingResult result) {
+        if(result.hasErrors()) {
+            return null;
+        }
+        Optional<Company> potentialcompany = companyRepo.findByEmailCom(newLogin.getEmailCom());
+        if(!potentialcompany.isPresent()) {
+            result.rejectValue("email", "Unique", "Unknown email!");
+            return null;
+        }
+        Company user = potentialcompany.get();
+        if(!BCrypt.checkpw(newLogin.getPasswordCom(), user.getPasswordCom())) {
+            result.rejectValue("password", "Matches", "Invalid Password!");
+        }
+        if(result.hasErrors()) {
+            return null;
+        } else {
+            return user;
+        }
+    }
+    public Company findCompanyById(Long id) {
+        Optional<Company> c = companyRepo.findById(id);
+
+        if(c.isPresent()) {
+            return c.get();
+            } else {
+            return null;
+        }
+    }
+    
+    //******* create a new real state ********
+    
+    public RealEstate newProj(RealEstate pro) {
+    	return realRepo.save(pro);
+    }
+    
+    //******* update a real estate ******
+    
+    public RealEstate updateReal(RealEstate pro) {
+    	return realRepo.save(pro);
+    }
+    
+    //*******  delete a real estate *******
+    
+    public void deleteReal(RealEstate pro) {
+    	 realRepo.delete(pro);
+    }
+    
+    
+    
+    
+}

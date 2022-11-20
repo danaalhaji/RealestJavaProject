@@ -1,0 +1,10 @@
+package com.axsos.realest.models;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="appoeintments")
+public class Appoeintments {
+
+}

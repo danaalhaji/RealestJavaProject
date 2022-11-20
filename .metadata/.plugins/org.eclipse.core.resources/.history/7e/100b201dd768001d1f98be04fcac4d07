@@ -1,0 +1,31 @@
+package com.axsos.realest.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.axsos.realest.models.RealEstate;
+import com.axsos.realest.models.User;
+import com.axsos.realest.repository.UserRepository;
+import com.axsos.realest.service.AppService;
+
+@RestController
+public class ApplicationApi {
+
+	private final AppService appService;
+
+	public ApplicationApi(AppService appService) {
+		this.appService = appService;
+	}
+	 @RequestMapping("/api/realestates")
+	 public List<RealEstate> index() {
+	     return appService.findAllRealEstate();
+	 }
+	 @RequestMapping("/api/register/user")
+	 public User create(@RequestParam(value="fullName") String fullName, @RequestParam(value="email") String email, @RequestParam(value="password") String password, @RequestParam(value="confirm") String confirm,@RequestParam(value="uPhoneNum") String uPhoneNum) {
+	     User user = new User(fullName, email, password, confirm, uPhoneNum);
+	     return appService.register(user, null);
+	 }
+}

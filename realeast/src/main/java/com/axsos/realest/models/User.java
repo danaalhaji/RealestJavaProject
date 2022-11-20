@@ -2,7 +2,6 @@ package com.axsos.realest.models;
 
 
 import java.util.Date;
-
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -63,23 +61,29 @@ public class User {
     protected void onCreate(){
         this.createdAt = new Date();
     }
+    
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "appoeintments", 
+        joinColumns = @JoinColumn(name = "user_id"), 
+        inverseJoinColumns = @JoinColumn(name = "company_id")
+    )
+    private List<Company> companies;
+    
     @PreUpdate
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
     
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(
-//    		name= "teams_Users",
-//    		joinColumns = @JoinColumn(name = "users_id"),
-//    	inverseJoinColumns = @JoinColumn(name = "teams_id")
-//)
-//    private List<Team> teamsJoined;
-//    
-//    @OneToMany(mappedBy="creator", fetch = FetchType.LAZY)
-//    private List<Team> teamsCreated;
+	public User() {}
     
-    public User() {}
+    public List<Company> getCompanies() {
+		return companies;
+	}
+
+	public void setCompanies(List<Company> companies) {
+		this.companies = companies;
+	}
 	public Long getId() {
 		return id;
 	}

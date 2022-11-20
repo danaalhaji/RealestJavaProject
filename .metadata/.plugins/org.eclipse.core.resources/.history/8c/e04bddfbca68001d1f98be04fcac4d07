@@ -1,0 +1,13 @@
+package com.axsos.realest.repository;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.axsos.realest.models.Company;
+import com.axsos.realest.models.RealEstate;
+
+public interface CompanyRepository extends CrudRepository<Company, Long>{
+	List<Company> findAll();
+	List<Company> findByrealEstateContains(RealEstate pro);
+}

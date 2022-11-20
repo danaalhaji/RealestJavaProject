@@ -3,4 +3,6 @@
     <fullyQualifiedTypeName name="javax.validation.constraints.Digits"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
     <fullyQualifiedTypeName name="javax.persistence.EnumType"/>
+    <fullyQualifiedTypeName name="com.axsos.realest.models.LoginCompany"/>
+    <fullyQualifiedTypeName name="com.axsos.realest.models.RealEstate"/>
 </qualifiedTypeNameHistroy>

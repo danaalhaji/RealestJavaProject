@@ -1,0 +1,5 @@
+package com.axsos.realest.repository;
+
+public interface UserRepository {
+
+}
