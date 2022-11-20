@@ -133,23 +133,23 @@ public AppController(AppService appService) {
             return "addEstate.jsp";
       	}
     }
-    @PostMapping("/company/register/submit")
-    public String addEsatate(@Valid @ModelAttribute("newCompany") Company newCompany, 
-            BindingResult result, Model model, HttpSession session) {
-    	appService.registerCompany(newCompany, result);
-    	
-      	if(session.getAttribute("company_id") == null) {
-    		return "redirect:/logout";
-    	}
-      	else {
-    		Long comID =  (Long) session.getAttribute("company_id");
-    		Company company = appService.findCompanyById(comID);
-      		if(result.hasErrors()) {
-            model.addAttribute("newCompany", new RealEstate());
-            return "index2.jsp";
-        }
-      		appService.newProj(null)
-      		return "redirect:/home";
-    }	
-    }
+//    @PostMapping("/company/register/submit")
+//    public String addEsatate(@Valid @ModelAttribute("newCompany") Company newCompany, 
+//            BindingResult result, Model model, HttpSession session) {
+//    	appService.registerCompany(newCompany, result);
+//    	
+//      	if(session.getAttribute("company_id") == null) {
+//    		return "redirect:/logout";
+//    	}
+//      	else {
+//    		Long comID =  (Long) session.getAttribute("company_id");
+//    		Company company = appService.findCompanyById(comID);
+//      		if(result.hasErrors()) {
+//            model.addAttribute("newCompany", new RealEstate());
+//            return "index2.jsp";
+//        }
+//      		appService.newProj(null)
+//      		return "redirect:/home";
+//    }	
+//    }
 }
