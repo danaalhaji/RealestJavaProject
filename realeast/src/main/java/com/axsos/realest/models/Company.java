@@ -1,0 +1,165 @@
+package com.axsos.realest.models;
+
+import java.util.Date;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Entity
+@Table(name="companies")
+public class Company {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @NotEmpty(message="Your company name is required!")
+    @Size(min=3, max=30, message="Name must be between 3 and 30 characters")
+    private String companyName;
+    
+    @NotEmpty(message="Company Location is required!")
+    @Size(min=3, max=100, message="Location must be between 3 and 100 characters")
+    private String location;
+    
+
+	@Digits(message="Number should contain 10 digits.", fraction = 0, integer = 10)
+    private String phoneNum;
+	
+    @NotEmpty(message="Email is required!")
+    @Email(message="Please enter a valid email!")
+    private String emailCom;
+    
+    @NotEmpty
+    private String licensedOp;
+    
+    @NotEmpty(message="Password is required!")
+    @Size(min=8, max=128, message="Password must be between 8 and 128 characters")
+    private String passwordCom;
+    
+    @Transient
+    @NotEmpty(message="Confirm Password is required!")
+    @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
+    private String confirmPass;
+    
+    @Column(updatable=false)
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date createdAt;
+    
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date updatedAt;
+    
+    
+    @OneToMany(mappedBy="company", fetch = FetchType.LAZY)
+    private List<RealEstate> realEstates;
+    
+    @PrePersist
+    protected void onCreate(){
+        this.createdAt = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedAt = new Date();
+    }
+    
+    public Company() {
+	}
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+
+	public String getEmailCom() {
+		return emailCom;
+	}
+
+	public void setEmailCom(String emailCom) {
+		this.emailCom = emailCom;
+	}
+
+	public String getLicensedOp() {
+		return licensedOp;
+	}
+
+	public void setLicensedOp(String licensedOp) {
+		this.licensedOp = licensedOp;
+	}
+
+	public String getPasswordCom() {
+		return passwordCom;
+	}
+
+	public void setPasswordCom(String passwordCom) {
+		this.passwordCom = passwordCom;
+	}
+
+	public String getConfirmPass() {
+		return confirmPass;
+	}
+
+	public void setConfirmPass(String confirmPass) {
+		this.confirmPass = confirmPass;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+}

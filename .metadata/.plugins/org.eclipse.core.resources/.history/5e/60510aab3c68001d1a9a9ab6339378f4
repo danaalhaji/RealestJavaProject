@@ -1,0 +1,64 @@
+package com.axsos.realest.models;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name = "realestes")
+public class RealEstate {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@NotEmpty(message = "Your company name is required!")
+	@Size(min = 3, max = 30, message = "Name must be between 3 and 30 characters")
+	private String proName;
+
+	@NotEmpty(message = "Company Location is required!")
+	@Size(min = 3, max = 100, message = "Location must be between 3 and 100 characters")
+	private String prolocation;
+
+	@NotNull
+	private int numberOfUnits;
+
+	@NotEmpty(message = "Starting price is required!")
+	@Min(value = 1, message = "Staritng price must not be empty")
+	private double satrtingPrice;
+
+	@NotEmpty(message = "Ending price is required!")
+	@Min(value = 1, message = "Ending price must not be empty")
+	private double endingPrice;
+
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	@Column(name = "location")
+	private location address;
+
+	public enum location {
+		Massyon, Massayef, AlBireh, Elersal, AlTireh, UmElsharaeet, ALRyhan, EinMusbah
+	};
+
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status")
+	private status status;
+
+	public enum status {Under construction, move-in ready};
+	
+	
+	@NotEmpty(message = "Starting area is required!")
+	@Min(value = 1, message = "Staritng area must not be empty")
+	private double satrtingArea;	
+
+
+}

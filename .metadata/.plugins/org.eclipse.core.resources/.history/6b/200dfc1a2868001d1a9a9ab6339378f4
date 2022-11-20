@@ -1,0 +1,5 @@
+package com.axsos.realest.models;
+
+public class Company {
+
+}
