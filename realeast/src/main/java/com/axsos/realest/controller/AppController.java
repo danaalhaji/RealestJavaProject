@@ -57,6 +57,7 @@ public AppController(AppService appService) {
             model.addAttribute("newUser", new User());
             return "index.jsp";
         }
+        
         session.setAttribute("user_id", user.getId());
         return "redirect:/home";
     }
@@ -68,12 +69,25 @@ public AppController(AppService appService) {
         Long user_id = (Long) session.getAttribute("user_id");
         User thisUser = appService.findUserById(user_id);
         model.addAttribute("thisUser", thisUser);
+<<<<<<< HEAD
         return "landing_page.jsp";
+=======
+        
+        return "home.jsp";
+>>>>>>> be4c3c3dc2e754e8b57e1b0b7e9701d42bf2557f
     }
-        else {
-            return "redirect:/";
+        else if (session.getAttribute("company_id") != null) {
+            Long company_id = (Long) session.getAttribute("company_id");
+            User thisComp = appService.findUserById(company_id);
+            model.addAttribute("thisComp", thisComp);
+            
+            return "home.jsp";
         }
-    }
+        else {    
+        	return "redirect:/logout";
+        }
+        }
+    
     //***************  log out for users ***************
     
     @GetMapping("/logout")
@@ -133,12 +147,33 @@ public AppController(AppService appService) {
             return "addEstate.jsp";
       	}
     }
+<<<<<<< HEAD
     
     //*************** about page  ***************
     
     @GetMapping("/about")
     public String about() {
         return "about.jsp";
+=======
+    @PostMapping("/company/estate/submit")
+    public String addEsatate(@Valid @ModelAttribute("newEstate") RealEstate newEstate, 
+            BindingResult result, Model model, HttpSession session) {
+		
+      	if(session.getAttribute("company_id") == null ) {
+    		return "redirect:/logout";
+    	}
+      	else {
+    		Long comID =  (Long) session.getAttribute("company_id");
+    		Company company = appService.findCompanyById(comID);
+      		if(result.hasErrors()) {
+            model.addAttribute("newEstate", new RealEstate());
+            return "addEstate.jsp";
+        }
+      		newEstate.setCompany(company);
+      		appService.newProj(newEstate);
+      		return "redirect:/home";
+    }	
+>>>>>>> be4c3c3dc2e754e8b57e1b0b7e9701d42bf2557f
     }
     
    //*************** property page  ***************

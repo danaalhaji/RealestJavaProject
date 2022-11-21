@@ -30,15 +30,15 @@ public class RealEstate {
 	@NotEmpty(message = "Description is required!")
 	@Size(min = 3, max = 30, message = "Name must be between 3 and 30 characters")
 	private String description;
-
+	
 	@NotNull
 	private int numberOfUnits;
 
-	@NotEmpty(message = "Starting price is required!")
+	@NotNull(message = "Starting price is required!")
 	@Min(value = 1, message = "Staritng price must not be empty")
 	private double satrtingPrice;
 
-	@NotEmpty(message = "Ending price is required!")
+	@NotNull(message = "Ending price is required!")
 	@Min(value = 1, message = "Ending price must not be empty")
 	private double endingPrice;
 
@@ -62,17 +62,17 @@ public class RealEstate {
 		};
 	
 	
-	@NotEmpty(message = "Starting area is required!")
+	@NotNull(message = "Starting area is required!")
 	@Min(value = 1, message = "Staritng area must not be empty")
 	private double satrtingArea;	
 	
 
-	@NotEmpty(message = "Ending area is required!")
+	@NotNull(message = "Ending area is required!")
 	@Min(value = 1, message = "Ending area must not be empty")
 	private double endingArea;
 	
 	
-	@NotEmpty(message = "Payment type is required!")
+	@NotNull(message = "Payment type is required!")
 	@Size(min = 3, max = 30, message = "Payment must be between 3 and 30 characters")
 	private String payment;
 	
