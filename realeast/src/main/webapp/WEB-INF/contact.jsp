@@ -156,7 +156,7 @@
           <span></span>
           <span></span>
         </button>
-        <a class="navbar-brand text-brand" href="index.html"
+        <a class="navbar-brand text-brand" href="/home"
           >Real<span class="color-b">est</span></a
         >
         <button

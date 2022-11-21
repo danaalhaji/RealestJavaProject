@@ -158,7 +158,7 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.html"
+      <a class="navbar-brand text-brand" href="/home"
         >Real<span class="color-b">est</span></a
       >
       <button
@@ -182,7 +182,7 @@
             <a class="nav-link" href="/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="about.html">About</a>
+            <a class="nav-link active" href="/about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/property">Property</a>
@@ -502,7 +502,7 @@
           <nav class="nav-footer">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="#">Home</a>
+                <a href="/home">Home</a>
               </li>
               <li class="list-inline-item">
                 <a href="#">About</a>
@@ -535,11 +535,6 @@
               <li class="list-inline-item">
                 <a href="#">
                   <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-dribbble" aria-hidden="true"></i>
                 </a>
               </li>
             </ul>

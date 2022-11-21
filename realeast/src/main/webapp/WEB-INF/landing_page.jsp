@@ -130,7 +130,7 @@
 				aria-label="Toggle navigation">
 				<span></span> <span></span> <span></span>
 			</button>
-			<a class="navbar-brand text-brand" href="index.html">Real<span
+			<a class="navbar-brand text-brand" href="/home">Real<span
 				class="color-b">est</span></a>
 			<button type="button"
 				class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none"
@@ -143,7 +143,7 @@
 				id="navbarDefault">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link active"
-						href="index.html">Home</a></li>
+						href="/home">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="/about">About</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"
@@ -587,7 +587,7 @@
 				<div class="col-md-12">
 					<nav class="nav-footer">
 						<ul class="list-inline">
-							<li class="list-inline-item"><a href="/home">Home</a></li>
+							<li class="list-inline-item"><a href="#">Home</a></li>
 							<li class="list-inline-item"><a href="/about">About</a></li>
 							<li class="list-inline-item"><a href="/property">Property</a></li>
 							<li class="list-inline-item"><a href="/contact">Contact</a></li>
