@@ -57,6 +57,7 @@ public AppController(AppService appService) {
             model.addAttribute("newUser", new User());
             return "index.jsp";
         }
+        
         session.setAttribute("user_id", user.getId());
         return "redirect:/home";
     }
@@ -68,12 +69,21 @@ public AppController(AppService appService) {
         Long user_id = (Long) session.getAttribute("user_id");
         User thisUser = appService.findUserById(user_id);
         model.addAttribute("thisUser", thisUser);
+        
         return "home.jsp";
     }
-        else {
-            return "redirect:/";
+        else if (session.getAttribute("company_id") != null) {
+            Long company_id = (Long) session.getAttribute("company_id");
+            User thisComp = appService.findUserById(company_id);
+            model.addAttribute("thisComp", thisComp);
+            
+            return "home.jsp";
         }
-    }
+        else {    
+        	return "redirect:/logout";
+        }
+        }
+    
     //***************  log out for users ***************
     
     @GetMapping("/logout")
@@ -133,23 +143,23 @@ public AppController(AppService appService) {
             return "addEstate.jsp";
       	}
     }
-//    @PostMapping("/company/register/submit")
-//    public String addEsatate(@Valid @ModelAttribute("newCompany") Company newCompany, 
-//            BindingResult result, Model model, HttpSession session) {
-//    	appService.registerCompany(newCompany, result);
-//    	
-//      	if(session.getAttribute("company_id") == null) {
-//    		return "redirect:/logout";
-//    	}
-//      	else {
-//    		Long comID =  (Long) session.getAttribute("company_id");
-//    		Company company = appService.findCompanyById(comID);
-//      		if(result.hasErrors()) {
-//            model.addAttribute("newCompany", new RealEstate());
-//            return "index2.jsp";
-//        }
-//      		appService.newProj(null)
-//      		return "redirect:/home";
-//    }	
-//    }
+    @PostMapping("/company/estate/submit")
+    public String addEsatate(@Valid @ModelAttribute("newEstate") RealEstate newEstate, 
+            BindingResult result, Model model, HttpSession session) {
+		
+      	if(session.getAttribute("company_id") == null ) {
+    		return "redirect:/logout";
+    	}
+      	else {
+    		Long comID =  (Long) session.getAttribute("company_id");
+    		Company company = appService.findCompanyById(comID);
+      		if(result.hasErrors()) {
+            model.addAttribute("newEstate", new RealEstate());
+            return "addEstate.jsp";
+        }
+      		newEstate.setCompany(company);
+      		appService.newProj(newEstate);
+      		return "redirect:/home";
+    }	
+    }
 }

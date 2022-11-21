@@ -32,8 +32,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotEmpty(message="Your name is required!")
-    @Size(min=3, max=30, message="The name must be between 3 and 30 characters")
+    @NotEmpty(message="Full name  is required!")
     private String fullName;
     
     @NotEmpty(message="Email is required!")
@@ -133,6 +132,7 @@ public class User {
 	public void setConfirm(String confirm) {
 		this.confirm = confirm;
 	}
-  
+
+
 }
     

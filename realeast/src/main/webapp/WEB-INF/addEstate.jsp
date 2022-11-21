@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <form:form action="/company/addestate/submit" method="post" modelAttribute="newEstate">
+    <form:form action="/company/estate/submit" method="post" modelAttribute="newEstate">
         <div class="form-group">
             <label>Name Building:</label>
             <form:input path="proName" class="form-control" />
