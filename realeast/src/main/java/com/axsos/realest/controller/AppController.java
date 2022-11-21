@@ -68,7 +68,7 @@ public AppController(AppService appService) {
         Long user_id = (Long) session.getAttribute("user_id");
         User thisUser = appService.findUserById(user_id);
         model.addAttribute("thisUser", thisUser);
-        return "home.jsp";
+        return "landing_page.jsp";
     }
         else {
             return "redirect:/";
@@ -96,7 +96,7 @@ public AppController(AppService appService) {
     	
         if(result.hasErrors()) {
             model.addAttribute("newLoginCompany", new LoginCompany());
-            return "index2.jsp";
+            return "landing_page.jsp";
         }
         session.setAttribute("company_id", newCompany.getId());
         return "redirect:/home";
@@ -133,23 +133,44 @@ public AppController(AppService appService) {
             return "addEstate.jsp";
       	}
     }
-    @PostMapping("/company/register/submit")
-    public String addEsatate(@Valid @ModelAttribute("newCompany") Company newCompany, 
-            BindingResult result, Model model, HttpSession session) {
-    	appService.registerCompany(newCompany, result);
-    	
-      	if(session.getAttribute("company_id") == null) {
-    		return "redirect:/logout";
-    	}
-      	else {
-    		Long comID =  (Long) session.getAttribute("company_id");
-    		Company company = appService.findCompanyById(comID);
-      		if(result.hasErrors()) {
-            model.addAttribute("newCompany", new RealEstate());
-            return "index2.jsp";
-        }
-      		appService.newProj(null)
-      		return "redirect:/home";
-    }	
+    
+    //*************** about page  ***************
+    
+    @GetMapping("/about")
+    public String about() {
+        return "about.jsp";
     }
+    
+   //*************** property page  ***************
+    
+    @GetMapping("/property")
+    public String property() {
+        return "property.jsp";
+    }
+    
+//*************** contact page  ***************
+    
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact.jsp";
+    }
+//    @PostMapping("/company/register/submit")
+//    public String addEsatate(@Valid @ModelAttribute("newCompany") Company newCompany, 
+//            BindingResult result, Model model, HttpSession session) {
+//    	appService.registerCompany(newCompany, result);
+//    	
+//      	if(session.getAttribute("company_id") == null) {
+//    		return "redirect:/logout";
+//    	}
+//      	else {
+//    		Long comID =  (Long) session.getAttribute("company_id");
+//    		Company company = appService.findCompanyById(comID);
+//      		if(result.hasErrors()) {
+//            model.addAttribute("newCompany", new RealEstate());
+//            return "index2.jsp";
+//        }
+//      		appService.newProj(null)
+//      		return "redirect:/home";
+//    }	
+//    }
 }
