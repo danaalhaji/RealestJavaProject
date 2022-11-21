@@ -196,7 +196,7 @@
                   aria-expanded="false">
                   Sign in
               </button>
-              <div class="dropdown-menu dropdown-menu-right">
+              <div class="dropdown-menu signin-popup-form-container">
                   <div id="login-form" class="login-form px-3">
                       <form action="#" method="post">
                           <div class="form-outline mb-4">

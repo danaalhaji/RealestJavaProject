@@ -44,6 +44,7 @@
 <script src="lib/bootstrap/js/bootstrap.min.js" defer></script>
 <script src="lib/easing/easing.min.js" defer></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js" defer></script>
+<script src="./libs/jquery/1.10.1/jquery.min.js"></script>
 </head>
 <body>
 	<div class="click-closed"></div>
@@ -142,12 +143,10 @@
 			<div class="navbar-collapse collapse d-flex flex-row-reverse"
 				id="navbarDefault">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link active"
-						href="/home">Home</a></li>
+					<li class="nav-item"><a class="nav-link active" href="/home">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="/about">About</a>
 					</li>
-					<li class="nav-item"><a class="nav-link"
-						href="/property">Property</a></li>
+					<li class="nav-item"><a class="nav-link" href="/property">Property</a></li>
 					<li class="nav-item"><a class="nav-link" href="/contact">Contact</a>
 					</li>
 					<li class="nav-item">
@@ -156,7 +155,7 @@
 								class="btn btn-success btn-sm dropdown-toggle mt-2"
 								data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false">Sign in</button>
-							<div class="dropdown-menu dropdown-menu-right">
+							<div class="dropdown-menu signin-popup-form-container">
 								<div id="login-form" class="login-form px-3">
 									<form action="#" method="post">
 										<div class="form-outline mb-4">
@@ -170,10 +169,12 @@
 												class="form-control" />
 										</div>
 										<div class="row mb-4">
-											<div class="col d-flex justify-content-center"></div>
-										</div>
-										<button type="submit" class="btn btn-success btn-block mb-4">Sign
-											in</button>
+											<div class="col d-flex justify-content-around align-items-center mb-3">
+												<button type="submit"
+													class="btn btn-success btn-block">Sign
+													in</button>
+												<a href="/company_register">Sign in as a Company</a>
+											</div>
 									</form>
 									<!-- Register buttons -->
 									<div class="text-center">
@@ -184,7 +185,6 @@
 								</div>
 							</div>
 						</div>
-
 					</li>
 				</ul>
 			</div>
@@ -532,7 +532,7 @@
 										yourselves a favor and hire Ahmad Hashem!!</p>
 								</div>
 								<div class="testimonial-author-box">
-									<img src='<c:url value="img/mini-testimonial-1.jpg"/>'
+									<img src="img/mini-testimonial-1.jpg"
 										class="testimonial-avatar" />
 									<h5 class="testimonial-author">Mohammad & Hiba</h5>
 								</div>

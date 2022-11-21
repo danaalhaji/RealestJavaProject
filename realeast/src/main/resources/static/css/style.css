@@ -1,15 +1,6 @@
 @charset "UTF-8";
 
-/*
-  Theme Name: EstateAgency
-  Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-  Author: BootstrapMade.com
-  License: https://bootstrapmade.com/license/
-*/
 
-/*======================================
-//--//-->   STYLES GENERALES
-======================================*/
 .login-form {
   width: 400px;
 }
@@ -2033,4 +2024,10 @@ footer .credits {
   .box-collapse .title-box-d .title-d {
     font-size: 1.3rem;
   }
+}
+
+
+.signin-popup-form-container {
+    right: -1px;
+    top: 41px;
 }
