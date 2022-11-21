@@ -275,11 +275,11 @@
           <div class="sinse-box">
             <h3 class="sinse-title">Realest
               <span></span>
-              <br> Sinse 2022</h3>
+              <br> Since 2022</h3>
             <p>Art & Creative</p>
           </div>
         </div>
-        
+       </div>
     </div>
   </section>
   <!--/ About End /-->
@@ -299,7 +299,7 @@
         <div class="col-md-3">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="img/agent-7.jpg" alt="" class="img-d img-fluid">
+              <img src='<c:url value="img/dana.jpg"/>' class="img-d img-fluid"/>
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
