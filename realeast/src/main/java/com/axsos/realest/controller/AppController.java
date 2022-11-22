@@ -180,6 +180,16 @@ public class AppController {
 	public String contact() {
 		return "contact.jsp";
 	}
+	
+	
+	//*************** detail page  ***************
+
+		@GetMapping("/detail")
+		public String detail() {
+			return "detail.jsp";
+		}		
+		
+		
 //    @PostMapping("/company/register/submit")
 //    public String addEsatate(@Valid @ModelAttribute("newCompany") Company newCompany, 
 //            BindingResult result, Model model, HttpSession session) {

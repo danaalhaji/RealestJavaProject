@@ -244,8 +244,8 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Our Amazing Properties</h1>
-              <span class="color-text-a">Grid Properties</span>
+              <h1 class="title-single">Company Name</h1>
+              <span class="color-text-a">Company Profile</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
@@ -258,7 +258,7 @@
                   <a href="/home">Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  Properties Grid
+                  Company Name
                 </li>
               </ol>
             </nav>

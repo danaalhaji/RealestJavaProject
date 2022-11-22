@@ -334,27 +334,27 @@
 				<div class="carousel-item-b">
 					<div class="card-box-a card-shadow">
 						<div class="img-box-a">
-							<img src='<c:url value="/img/property-6.jpg"/>' class="logo" />
+							<img src='<c:url value="img/property-3.jpg"/>' class="logo" />
 						</div>
 						<div class="card-overlay">
 							<div class="card-overlay-a-content">
 								<div class="card-header-a">
 									<h2 class="card-title-a">
-										<a href="property-single.html"><br /> Sky Towers</a>
+										<a href="property-single.html"><br /> Central Park</a>
 									</h2>
 								</div>
 								<div class="card-body-a">
 									<div class="price-box d-flex">
-										<span class="price-a">$ 125.000</span>
+										<span class="price-a">$ 182.000</span>
 									</div>
-									<a href="#" class="link-a">Click here to view <span
-										class="ion-ios-arrow-forward"></span>
+									<a href="/detail" class="link-a">Click here to
+										view <span class="ion-ios-arrow-forward"></span>
 									</a>
 								</div>
 								<div class="card-footer-a">
 									<ul class="card-info d-flex justify-content-around">
 										<li>
-											<h4 class="card-info-title">Area</h4> <span>240m <sup>2</sup>
+											<h4 class="card-info-title">Area</h4> <span>350m <sup>2</sup>
 										</span>
 										</li>
 										<li>
@@ -388,7 +388,7 @@
 									<div class="price-box d-flex">
 										<span class="price-a">$ 182.000</span>
 									</div>
-									<a href="property-single.html" class="link-a">Click here to
+									<a href="/detail" class="link-a">Click here to
 										view <span class="ion-ios-arrow-forward"></span>
 									</a>
 								</div>
@@ -429,7 +429,7 @@
 									<div class="price-box d-flex">
 										<span class="price-a">$ 162.000</span>
 									</div>
-									<a href="property-single.html" class="link-a">Click here to
+									<a href="/detail" class="link-a">Click here to
 										view <span class="ion-ios-arrow-forward"></span>
 									</a>
 								</div>
@@ -472,7 +472,7 @@
 									<div class="price-box d-flex">
 										<span class="price-a">$ 172.000</span>
 									</div>
-									<a href="property-single.html" class="link-a">Click here to
+									<a href="/detail" class="link-a">Click here to
 										view <span class="ion-ios-arrow-forward"></span>
 									</a>
 								</div>
