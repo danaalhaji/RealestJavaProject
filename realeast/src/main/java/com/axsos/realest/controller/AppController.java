@@ -27,12 +27,12 @@ public class AppController {
 	}
 
 //************	login and registration page ************
-	@GetMapping("/")
-	public String index(Model model) {
-		model.addAttribute("newUser", new User());
-		model.addAttribute("newLogin", new LoginUser());
-		return "index.jsp";
-	}
+//	@GetMapping("/")
+//	public String index(Model model) {
+//		model.addAttribute("newUser", new User());
+//		model.addAttribute("newLogin", new LoginUser());
+//		return "index.jsp";
+//	}
 
 //******** submit new user **************
 	@PostMapping("/register")
@@ -63,23 +63,11 @@ public class AppController {
 	}
 	// ******* home route ***************
 
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String home(Model model, HttpSession session) {
-		if (session.getAttribute("user_id") != null) {
-			Long user_id = (Long) session.getAttribute("user_id");
-			User thisUser = appService.findUserById(user_id);
-			model.addAttribute("thisUser", thisUser);
-			return "landing_page.jsp";
+		model.addAttribute("projects", appService.findAllRealEstate());
+		return "landing_page.jsp";
 
-		} else if (session.getAttribute("company_id") != null) {
-			Long company_id = (Long) session.getAttribute("company_id");
-			User thisComp = appService.findUserById(company_id);
-			model.addAttribute("thisComp", thisComp);
-
-			return "home.jsp";
-		} else {
-			return "redirect:/logout";
-		}
 	}
 
 	// *************** log out for users ***************
@@ -174,12 +162,25 @@ public class AppController {
 		return "property.jsp";
 	}
 
-	//*************** contact page  ***************
+	// *************** contact page ***************
 
 	@GetMapping("/contact")
 	public String contact() {
 		return "contact.jsp";
 	}
+
+	@GetMapping("/registerUser")
+	public String registerUserForm(Model model) {
+		model.addAttribute("newUser", new User());
+		return "userRegister.jsp";
+	}
+
+	@GetMapping("/companyLogin")
+	public String loginCompanyForm(Model model) {
+		model.addAttribute("newLoginCompany", new LoginCompany());
+		return "/companyLogin.jsp";
+	}
+
 //    @PostMapping("/company/register/submit")
 //    public String addEsatate(@Valid @ModelAttribute("newCompany") Company newCompany, 
 //            BindingResult result, Model model, HttpSession session) {

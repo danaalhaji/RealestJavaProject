@@ -69,6 +69,7 @@
             <form:errors path="passwordCom" class="text-danger" />
         </div>
         <input type="submit" value="Login" class="btn btn-success" />
+        <a href="#">Are you interested to join us? </a>
     </form:form>
 
 </body>
