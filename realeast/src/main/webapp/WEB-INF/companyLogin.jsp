@@ -38,7 +38,7 @@
 			</div>
 			<button style="margin-top: 5%;">Login</button>
 		</form:form>
-		<p style="color: black;">Are you interested to join us?<br> Contact us at: <a href="#"><u>info@therealest.com</u></a></p>
+		<p style="color: black;">Are you interested to join us?<br> Contact us at: <a href="mailto:info@therealest.com"><u>info@therealest.com</u></a></p>
 	</main>
 
 </body>
