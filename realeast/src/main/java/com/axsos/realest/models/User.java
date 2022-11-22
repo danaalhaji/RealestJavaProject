@@ -48,9 +48,9 @@ public class User {
     private Date createdAt;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
-    
     @Digits(message="Number should contain 10 digits.", fraction = 0, integer = 10)
     private String uPhoneNum;
+    
     
     @Transient
     @NotEmpty(message="Confirm Password is required!")
@@ -108,12 +108,16 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+
 	public String getuPhoneNum() {
 		return uPhoneNum;
 	}
+
 	public void setuPhoneNum(String uPhoneNum) {
 		this.uPhoneNum = uPhoneNum;
 	}
+
 	public String getEmail() {
 		return email;
 	}

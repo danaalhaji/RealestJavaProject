@@ -131,7 +131,7 @@
 				aria-label="Toggle navigation">
 				<span></span> <span></span> <span></span>
 			</button>
-			<a class="navbar-brand text-brand" href="/home">Real<span
+			<a class="navbar-brand text-brand" href="/">Real<span
 				class="color-b">est</span></a>
 			<button type="button"
 				class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none"
@@ -143,7 +143,7 @@
 			<div class="navbar-collapse collapse d-flex flex-row-reverse"
 				id="navbarDefault">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link active" href="/home">Home</a></li>
+					<li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="/about">About</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="/property">Property</a></li>
@@ -155,7 +155,7 @@
 								class="btn btn-success btn-sm dropdown-toggle mt-2"
 								data-toggle="dropdown" aria-haspopup="true"
 								aria-expanded="false">Sign in</button>
-							<div class="dropdown-menu signin-popup-form-container">
+							<div class="dropdown-menu signin-popup-form-container pt-4">
 								<div id="login-form" class="login-form px-3">
 									<form action="#" method="post">
 										<div class="form-outline mb-4">
@@ -173,13 +173,14 @@
 												<button type="submit"
 													class="btn btn-success btn-block">Sign
 													in</button>
-												<a href="/company_register">Sign in as a Company</a>
+												<a href="/companyLogin">Sign in as a Company</a>
 											</div>
+										</div>
 									</form>
 									<!-- Register buttons -->
 									<div class="text-center">
 										<p>
-											Not a member? <a href="/register/">Register</a>
+											Not a member? <a href="/registerUser">Register</a>
 										</p>
 									</div>
 								</div>
